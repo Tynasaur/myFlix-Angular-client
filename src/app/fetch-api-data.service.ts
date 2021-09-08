@@ -37,7 +37,7 @@ export class FetchApiDataService {
       );
     }
     return throwError(
-      'Could complete the registration process, Please try again later'
+      'Could not complete the registration process, Please try again later'
     );
   }
 }
