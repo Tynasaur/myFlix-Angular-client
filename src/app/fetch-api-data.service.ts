@@ -42,16 +42,16 @@ export class FetchApiDataService {
   }
 }
 
-export class UserRegistrationService {
+export class UserLoginService {
   // Inject the HttpClient module to the constructor params
   // This will provide HttpClient to the entire class, making it available via this.http
   constructor(private http: HttpClient) {}
 
   // Making the api call for the user registration endpoint
-  public userRegistration(userDetails: any): Observable<any> {
+  public userLogin(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http
-      .post(apiUrl + 'users', userDetails)
+      .post(apiUrl + 'login', userDetails)
       .pipe(catchError(this.handleError));
   }
 
@@ -63,7 +63,7 @@ export class UserRegistrationService {
         `Error Status code ${error.status}, ` + `Error body is: ${error.error}`
       );
     }
-    return throwError('Something went wrong; please try again later.');
+    return throwError('Could not login; please try again later.');
   }
 }
 
