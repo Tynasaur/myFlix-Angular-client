@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-
 // custom modules
 import { FetchApiDataService } from '../fetch-api-data.service';
 
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
-  styleUrls: ['./movie-card.component.css']
+  styleUrls: ['./movie-card.component.css'],
 })
 export class MovieCardComponent {
   movies: any[] = [];
-  constructor(public fetchApiData: FetchApiDataService) { }
+  constructor(public fetchApiData: FetchApiDataService) {}
 
   ngOnInit(): void {
     this.getMovies();
@@ -23,5 +22,4 @@ export class MovieCardComponent {
       return this.movies;
     });
   }
-
 }
