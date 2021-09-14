@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+// components
 import { FetchApiDataService } from '../fetch-api-data.service';
-
+// Material modules
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { MatCard } from '@angular/material/card';
@@ -32,7 +32,4 @@ export class ProfileViewComponent implements OnInit {
       this.user = res;
     });
   }
-
-
-  
 }
