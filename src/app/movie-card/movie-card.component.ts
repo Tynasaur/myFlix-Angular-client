@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { DirectorViewComponent } from '../director-view/director-view.component';
 import { GenreViewComponent } from '../genre-view/genre-view.component';
+import { DetailsDialogComponent } from '../details-dialog/details-dialog.component';
 
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -49,5 +50,16 @@ export class MovieCardComponent {
       panelClass: 'director-dialog',
     });
   }
-
+  showDetailsDialog(
+    title: string,
+    imagePath: string,
+    description: string,
+    director: string,
+    genre: string
+  ): void {
+    this.dialog.open(DetailsDialogComponent, {
+      data: { title, imagePath, description, director, genre },
+      panelClass: 'details-dialog',
+    });
+  }
 }

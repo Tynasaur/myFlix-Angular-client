@@ -21,6 +21,7 @@ import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { ProfileEditViewComponent } from './profile-edit-view/profile-edit-view.component';
 import { GenreViewComponent } from './genre-view/genre-view.component';
 import { DirectorViewComponent } from './director-view/director-view.component';
+import { DetailsDialogComponent } from './details-dialog/details-dialog.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
     ProfileEditViewComponent,
     GenreViewComponent,
     DirectorViewComponent,
+    DetailsDialogComponent,
   ],
   imports: [
     AppRoutingModule,
