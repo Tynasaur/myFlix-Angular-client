@@ -22,11 +22,12 @@ import { ProfileEditViewComponent } from './profile-edit-view/profile-edit-view.
 import { GenreViewComponent } from './genre-view/genre-view.component';
 import { DirectorViewComponent } from './director-view/director-view.component';
 import { DetailsDialogComponent } from './details-dialog/details-dialog.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
-  { path: 'users', component: ProfileViewComponent },
+  { path: 'profile', component: ProfileViewComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
     GenreViewComponent,
     DirectorViewComponent,
     DetailsDialogComponent,
+    NavBarComponent,
   ],
   imports: [
     AppRoutingModule,
