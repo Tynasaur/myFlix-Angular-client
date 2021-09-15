@@ -11,10 +11,7 @@ import { Router } from '@angular/router';
 
 //Declaring the api url that will provide data for the client app
 const apiUrl = 'https://thainas-myflix.herokuapp.com/';
-// Get token from local storage for requests
-const token = localStorage.getItem('token');
-// Get username from localStorage for URLs
-const user = localStorage.getItem('user');
+
 
 @Injectable({
   providedIn: 'root',
@@ -134,7 +131,7 @@ export class FetchApiDataService {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
     return this.http
-      .get(apiUrl + `users/${username}/favoritemovies`, {
+      .get(apiUrl + `users/${username}/favoriteMovies`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -152,7 +149,7 @@ export class FetchApiDataService {
     const username = localStorage.getItem('username');
     console.log(token, 'token from addToFavoriteMovies POST request');
     return this.http
-      .post(apiUrl + 'users/' + username + '/favoritemovies/' + id, null, {
+      .post(apiUrl + 'users/' + username + '/favoriteMovies/' + id, null, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -199,7 +196,7 @@ export class FetchApiDataService {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('username');
     return this.http
-      .delete(apiUrl + 'users/' + username + '/favoritemovies/' + id, {
+      .delete(apiUrl + 'users/' + username + '/favoriteMovies/' + id, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
