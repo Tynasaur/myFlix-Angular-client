@@ -5,6 +5,7 @@ import { ProfileViewComponent } from '../profile-view/profile-view.component';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
+import { FavoritesComponent } from '../favorites/favorites.component';
 
 @Component({
   selector: 'app-nav-bar',
@@ -12,15 +13,29 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent implements OnInit {
-  constructor(public snackBar: MatSnackBar, public dialog: MatDialog, public router: Router, ) {}
+  constructor(
+    public snackBar: MatSnackBar,
+    public dialog: MatDialog,
+    public router: Router
+  ) {}
 
   ngOnInit(): void {}
 
- 
-     openUserProfile(): void {
-      this.dialog.open(ProfileViewComponent, {
-        width: '500px'
-      } );
-    }
-  
+  openUserProfile(): void {
+    this.dialog.open(ProfileViewComponent, {
+      width: '500px',
+    });
+  }
+
+  openFavorites(): void {
+    this.dialog.open(FavoritesComponent,
+    )};
+
+  logOut(): void {
+    localStorage.clear();
+    this.router.navigate(['welcome']);
+    this.snackBar.open('Logout successful!', 'OK', {
+      duration: 3000,
+    });
+  }
 }

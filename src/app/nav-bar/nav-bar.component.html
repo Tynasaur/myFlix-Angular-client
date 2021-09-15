@@ -1,14 +1,22 @@
-<div class='navbar'>
-  <div class='nav-container'>
-    <div class='nav-links'>
-      <a class='nav-title' routerLink='/movies'>
-        Flixes
-      </a>
-    </div>
-    <div class='nav-links nav-links-right'>
-      <a class='profile' routerLink='/profile'>
-        Profile
-      </a>
-    </div>
+<mat-toolbar>
+
+  <img class="app-logo"
+    src='https://blog.flamingtext.com/blog/2021/09/15/flamingtext_com_1631746186_320190675.png' alt="my FLix logo"
+     />
+
+  <span class="top-nav"></span>
+  <div>
+    <button mat-button routerLink='movies'>
+      Movies
+    </button>
+    <button mat-button routerLink='/profile'>
+      User Profile
+    </button>
+    <button mat-button routerLink='/favorites'>
+      Favorite Movies
+    </button>
+    <button mat-button (click)='logOut()'>
+      Log out
+    </button>
   </div>
-</div>
+</mat-toolbar>
