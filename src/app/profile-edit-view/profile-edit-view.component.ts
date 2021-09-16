@@ -14,11 +14,6 @@ export class ProfileEditViewComponent implements OnInit {
   //fields for user update form
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
 
-  username: any = {};
-  movies: any = [];
-  favorites: any = [];
-
-
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<ProfileEditViewComponent>,
@@ -28,23 +23,23 @@ export class ProfileEditViewComponent implements OnInit {
   ngOnInit(): void {}
 
   //update user details
-  editProfile(): void {
+  updateUser(): void {
     this.fetchApiData.editUserProfile(this.userData).subscribe(
-      (res) => {
+      (response) => {
         // Logic for successful user registration needs to be implemented here!
         this.dialogRef.close();
-        localStorage.setItem('user', res.username);
-        console.log(res);
+        localStorage.setItem('username', response.Username);
+        console.log(response);
         this.snackBar.open(
-          
-          'Successfully updated user details!', "ok",
+          this.userData.Username,
+          'Successfully updated user details!',
           {
             duration: 3000,
           }
         );
       },
-      (res) => {
-        this.snackBar.open(res, 'OK', {
+      (response) => {
+        this.snackBar.open(response, 'OK', {
           duration: 3000,
         });
         setTimeout(function () {

@@ -1,3 +1,26 @@
-<app-nav-bar></app-nav-bar>
-<p>profile-view works!</p>
+<mat-card>
+  <div class='profile-card-container'>
+    <mat-card-title>User Details</mat-card-title>
+    <mat-card-content>
+      <p class='profile-data'>USERNAME</p>
+      <p class='profile-card-content'>{{user.Username}}</p>
+      <p class="profile-data">EMAIL</p>
+      <p class='profile-card-content'>{{user.Email}}</p>
+      <p class="profile-data">BIRTHDAY</p>
+      <p class='profile-card-content'>{{user.Birthday | date: "dd/MM/yyyy":"UTC" || "N/A"}}</p>
 
+    </mat-card-content>
+
+    <mat-card-subtitle>
+      <button class="update-dialog-button" mat-button (click)='openUpdateUserDialog()'>
+        Update Profile
+      </button>
+
+      <button class="delete-account-button" mat-button (click)='deleteUserProfileDialog()'
+        style="color: rgb(20, 19, 19); background-color: rgb(238, 122, 44);">
+        Delete Account
+      </button>
+    </mat-card-subtitle>
+
+  </div>
+</mat-card>
