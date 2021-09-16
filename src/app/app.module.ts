@@ -4,9 +4,11 @@ import { NgModule } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,13 +23,15 @@ import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { ProfileEditViewComponent } from './profile-edit-view/profile-edit-view.component';
 import { GenreViewComponent } from './genre-view/genre-view.component';
 import { DirectorViewComponent } from './director-view/director-view.component';
-import { DetailsDialogComponent } from './details-dialog/details-dialog.component';
+import { MovieDetailsComponent } from './movie-details/details-dialog.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
   { path: 'profile', component: ProfileViewComponent },
+  { path: 'favorites', component: FavoritesComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
@@ -42,8 +46,9 @@ const appRoutes: Routes = [
     ProfileEditViewComponent,
     GenreViewComponent,
     DirectorViewComponent,
-    DetailsDialogComponent,
+    MovieDetailsComponent,
     NavBarComponent,
+    FavoritesComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -52,11 +57,13 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule,
     MatDialogModule,
+    MatIconModule,
     MatInputModule,
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
     MatSnackBarModule,
+    MatToolbarModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [],
