@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 //Declaring the api url that will provide data for the client app
 const apiUrl = 'https://thainas-myflix.herokuapp.com/';
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -105,8 +104,7 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-
-//user requests
+  //user requests
   /**
    * Get one user by username
    * @param username
@@ -131,7 +129,7 @@ export class FetchApiDataService {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
     return this.http
-      .get(apiUrl + `users/${username}/favoriteMovies`, {
+      .get(apiUrl + `users/${username}/favorites`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -149,7 +147,20 @@ export class FetchApiDataService {
     const username = localStorage.getItem('username');
     console.log(token, 'token from addToFavoriteMovies POST request');
     return this.http
-      .post(apiUrl + 'users/' + username + '/favoriteMovies/' + id, null, {
+      .post(apiUrl + 'users/' + username + '/favorites/' + id, null, {
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + token,
+        }),
+      })
+      .pipe(map(this.extractResponseData), catchError(this.handleError));
+  }
+
+  // Remove a movie from the favoritemovies-array (private service)
+  removeFavoriteMovie(id: string): Observable<any> {
+    const token = localStorage.getItem('token');
+    const username = localStorage.getItem('username');
+    return this.http
+      .delete(apiUrl + 'users/' + username + '/favorites/' + id, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -184,19 +195,6 @@ export class FetchApiDataService {
     const username = localStorage.getItem('username');
     return this.http
       .delete(apiUrl + `users/${username}`, {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + token,
-        }),
-      })
-      .pipe(map(this.extractResponseData), catchError(this.handleError));
-  }
-
-  // Remove a movie from the favoritemovies-array (private service)
-  removeFavoriteMovie(id: string): Observable<any> {
-    const token = localStorage.getItem('token');
-    const username = localStorage.getItem('username');
-    return this.http
-      .delete(apiUrl + 'users/' + username + '/favoriteMovies/' + id, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
