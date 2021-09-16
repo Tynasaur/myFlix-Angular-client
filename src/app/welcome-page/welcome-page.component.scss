@@ -1,0 +1,35 @@
+* {
+  font-family: "Ubuntu-Light", Roboto;
+}
+h1 {
+  color: rgb(168, 168, 168);
+}
+
+.main-page {
+  max-width: 550px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 25vh auto;
+}
+
+.card-content {
+  margin: 16px;
+}
+
+.registration-button {
+  margin: 0 auto;
+  margin-top: 1vh;
+  min-width: 300px;
+  max-width: 350px;
+  background-color: rgb(248, 119, 34);
+  color: rgb(20, 19, 19);
+}
+
+.login-button {
+  margin: 0 auto;
+  margin-top: 1vh;
+  min-width: 300px;
+  background-color: rgb(139, 139, 139);
+  color: black;
+}

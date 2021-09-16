@@ -3,13 +3,14 @@
 }
 
 mat-card {
-  background-color: rgb(13, 26, 27);
+  background-color: rgb(39, 41, 41);
 }
 
 mat-card-title {
   font-family: "Ubuntu-Medium", Roboto;
-  color: rgb(219, 112, 41);
+  color: rgb(233, 131, 64);
   margin: 15px;
+  font-size: 22px;
 }
 
 .float-right {
@@ -24,7 +25,8 @@ mat-card-title {
 
 .profile-data {
   margin-left: 30px;
-  color: whitesmoke;
+  color: rgb(129, 129, 129);
+  font-size: 11px;
 }
 
 

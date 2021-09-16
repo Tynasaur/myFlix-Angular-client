@@ -28,7 +28,6 @@ export class ProfileViewComponent implements OnInit {
 
   getUser(): void {
     let user = localStorage.getItem('username');
-    let favoriteMovies = localStorage.getItem('favoriteMovies');
     this.fetchApiData.getUser(user).subscribe((response: any) => {
       this.user = response;
       console.log(user);
@@ -38,7 +37,7 @@ export class ProfileViewComponent implements OnInit {
   openUpdateUserDialog(): void {
     this.dialog.open(ProfileEditViewComponent, {
       panelClass: 'update-dialog',
-      width: '700px'
+      width: '700px',
     });
   }
 

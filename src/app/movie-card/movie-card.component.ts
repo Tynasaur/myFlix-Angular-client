@@ -69,7 +69,7 @@ export class MovieCardComponent {
   }
 
   addToFavoriteMoviesList(id: string, Title: string): void {
-    this.fetchApiData.addToFavoriteMovies(id).subscribe((res: any) => {
+    this.fetchApiData.addToFavoriteMovies(id).subscribe((response: any) => {
       this.snackBar.open(`${Title} has been added to favorties`, 'OK', {
         duration: 3000,
       });
@@ -81,7 +81,7 @@ export class MovieCardComponent {
    * Removed movie from users favorites list
    */
   removeFromFavorites(id: string, Title: string): void {
-    this.fetchApiData.removeFavoriteMovie(id).subscribe((res: any) => {
+    this.fetchApiData.removeFavoriteMovie(id).subscribe((response: any) => {
       this.snackBar.open(`${Title} has been removed from favorties`, 'OK', {
         duration: 3000,
       });
@@ -93,9 +93,9 @@ export class MovieCardComponent {
    * Returns a list of the users favorites movie._id's
    */
   getUsersFavs(): void {
-    const user = localStorage.getItem('username');
-    this.fetchApiData.getUser(user).subscribe((resp: any) => {
-      this.faves = resp.Favorites;
+    const user = localStorage.getItem('Username');
+    this.fetchApiData.getUser(user).subscribe((response: any) => {
+      this.faves = response.Favorites;
       //console.log(this.faves);
       return this.faves;
     });
