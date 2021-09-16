@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-// custom modules
 import { FetchApiDataService } from '../fetch-api-data.service';
-import { DirectorViewComponent } from '../director-view/director-view.component';
-import { GenreViewComponent } from '../genre-view/genre-view.component';
-import { MovieDetailsComponent } from '../movie-details/details-dialog.component';
 
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+import { DirectorViewComponent } from '../director-view/director-view.component';
+import { GenreViewComponent } from '../genre-view/genre-view.component';
+import { MovieDetailsComponent } from '../movie-details/details-dialog.component';
 
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss'],
 })
-export class MovieCardComponent {
+export class MovieCardComponent implements OnInit {
+  isLoading = false;
   movies: any[] = [];
   faves: any[] = [];
 
@@ -29,22 +29,32 @@ export class MovieCardComponent {
     this.getUsersFavs();
   }
 
+  /**
+   * Get all Movies
+   */
   getMovies(): void {
+    this.isLoading = true;
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
+      this.isLoading = false;
       this.movies = resp;
-      console.log(this.movies);
+      //console.log(this.movies);
       return this.movies;
     });
   }
 
-  showGenreDialog(name: string, description: string): void {
+  /**
+   * Opens genre details in a MatDialog modal
+   * @param name Genre name
+   * @param description genre description
+   */
+  openGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreViewComponent, {
       data: { name, description },
       panelClass: 'genre-dialog',
     });
   }
 
-  showDirectorDialog(
+  openDirectorDialog(
     name: string,
     bio: string,
     birthday: string,
@@ -55,7 +65,12 @@ export class MovieCardComponent {
       panelClass: 'director-dialog',
     });
   }
-  showMovieDetails(
+  /**
+   * Opens movie synopsis modal with Title, description and trailer video
+   * @param Title movie title
+   * @param description movie description
+   */
+  openMovieDetails(
     title: string,
     imagePath: string,
     description: string,
@@ -68,8 +83,12 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * Adds move to users favorites list
+   */
   addToFavoriteMoviesList(id: string, Title: string): void {
     this.fetchApiData.addToFavoriteMovies(id).subscribe((response: any) => {
+      console.log(response);
       this.snackBar.open(`${Title} has been added to favorties`, 'OK', {
         duration: 3000,
       });
@@ -93,9 +112,9 @@ export class MovieCardComponent {
    * Returns a list of the users favorites movie._id's
    */
   getUsersFavs(): void {
-    const user = localStorage.getItem('Username');
-    this.fetchApiData.getUser(user).subscribe((response: any) => {
-      this.faves = response.Favorites;
+    const user = localStorage.getItem('username');
+    this.fetchApiData.getUser(user).subscribe((resp: any) => {
+      this.faves = resp.Favorites;
       //console.log(this.faves);
       return this.faves;
     });

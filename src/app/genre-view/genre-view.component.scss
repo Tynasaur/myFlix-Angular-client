@@ -1,0 +1,25 @@
+* {
+  font-family: "Ubuntu-Light", Roboto;
+}
+
+mat-card-title {
+  color: rgb(224, 134, 15);
+  margin-left: 20px;
+}
+
+.data {
+  color: white;
+  margin-left: 20px;
+}
+
+.genre-container {
+  background-color: rgb(46, 46, 46);
+  color: rgb(221, 221, 221);
+  max-width: 500px;
+}
+
+.close-button {
+  position: relative;
+  color: rgb(180, 179, 179);
+}
+
