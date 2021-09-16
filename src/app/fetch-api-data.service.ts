@@ -192,7 +192,7 @@ export class FetchApiDataService {
   }
 
   // Remove a movie from the favoritemovies-array (private service)
-  removeFromFavoriteMovies(id: string): Observable<any> {
+  removeFavoriteMovie(id: string): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('username');
     return this.http
