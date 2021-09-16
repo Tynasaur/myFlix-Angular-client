@@ -6,10 +6,10 @@
 
   <span class="top-nav"></span>
   <div>
-    <button mat-button routerLink='movies'>
+    <button mat-button routerLink='/movies'>
       Movies
     </button>
-    <button mat-button routerLink='/profile'>
+    <button mat-button (click)='openUserProfile()'>
       User Profile
     </button>
     <button mat-button routerLink='/favorites'>
