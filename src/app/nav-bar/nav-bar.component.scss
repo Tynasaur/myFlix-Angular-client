@@ -3,7 +3,6 @@
   font-size: 1rem;
   background-color: rgb(32, 32, 32);
   color: rgb(207, 157, 49);
- 
 }
 
 .top-nav {
@@ -14,4 +13,8 @@
 
 .app-logo {
   max-height: 60px;
+}
+
+button:hover {
+  text-shadow: 0 0 5px #c79f0f;
 }
