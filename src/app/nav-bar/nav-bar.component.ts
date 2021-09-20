@@ -21,16 +21,25 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * Opens user profile, from here you can update user info
+   */
   openUserProfile(): void {
     this.dialog.open(ProfileViewComponent, {
       width: '500px',
     });
   }
 
+  /**
+   * Opens the users favorites page
+   */
   openFavorites(): void {
-    this.dialog.open(FavoritesComponent,
-    )};
+    this.dialog.open(FavoritesComponent);
+  }
 
+  /**
+   * Logs user out of app
+   */
   logOut(): void {
     localStorage.clear();
     this.router.navigate(['welcome']);

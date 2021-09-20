@@ -26,6 +26,9 @@ export class ProfileViewComponent implements OnInit {
     this.getUser();
   }
 
+    /**
+   * Gets user details, used to display username in the user profile
+  */
   getUser(): void {
     let user = localStorage.getItem('username');
     this.fetchApiData.getUser(user).subscribe((resp: any) => {
@@ -34,6 +37,9 @@ export class ProfileViewComponent implements OnInit {
     });
   }
 
+    /**
+   * Opens the dialog to update user information
+  */
   openUpdateUserDialog(): void {
     this.dialog.open(ProfileEditViewComponent, {
       panelClass: 'update-dialog',
@@ -41,6 +47,9 @@ export class ProfileViewComponent implements OnInit {
     });
   }
 
+    /**
+   * Permanently deletes user profile
+  */
   deleteUserProfileDialog(): void {
     if (confirm('Are you sure? This cannot be undone.')) {
       this.fetchApiData.deleteUserProfile().subscribe(

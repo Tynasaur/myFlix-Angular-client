@@ -92,8 +92,8 @@ export class FavoritesComponent implements OnInit {
    * opens director modal with infos about director
    * @param name (director name)
    * @param bio (director bio)
-   * @param birthYear (director birthYear)
-   * @param deathYear (director deathYear)
+   * @param birthday (director birthday)
+   * @param deathdate (director deathdate)
    */
   openDirectorDialog(
     name: string,
@@ -128,6 +128,12 @@ export class FavoritesComponent implements OnInit {
     });
   }
 
+  /**
+   * adds the movie to users favoritemovies array
+   * @param id (movie._id - unique identifier)
+   * @param title (movie title)
+   * @returns a status message - success/error
+   */
   addToFavoriteMoviesList(id: string, Title: string): void {
     this.fetchApiData.addToFavoriteMovies(id).subscribe((resp: any) => {
       this.snackBar.open(`${Title} has been added to favorties`, 'OK', {
