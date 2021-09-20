@@ -2,8 +2,28 @@
   font-family: "Ubuntu-Light", Roboto;
 }
 
-mat-card {
-  background-color:rgb(39, 41, 41);
+mat-icon {
+  font-size: 15px;
+  text-align: center;
+  padding-right: 10px;
+}
+
+#close-button {
+  align-self: flex-end;
+  color: rgb(181, 181, 184);
+  background-color: rgb(37, 37, 37);
+}
+
+
+.profile-edit-container {
+  background-color: rgb(46, 46, 46);
+  color: rgb(221, 221, 221);
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  padding-bottom: 22px;
 }
 
 mat-card-title {
@@ -24,9 +44,11 @@ input {
   padding-top: 5px;
 }
 
-.profile-edit-field-name {
-  color: rgb(146, 141, 141);
-  font-size: 13px;
+.label {
+  color: rgb(158, 155, 155);
+  margin-left: 20px;
+  font-size: 10px;
+  margin-bottom: -5px;
 }
 
 .card-content {
@@ -40,4 +62,8 @@ input {
   color: black;
 }
 
-
+.update-dialog-button:hover {
+  color: black;
+  box-shadow: 0 0 15px rgb(139, 139, 139);
+  text-shadow: 0 0 5px #888371;
+}

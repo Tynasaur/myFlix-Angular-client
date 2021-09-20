@@ -33,3 +33,15 @@ h1 {
   background-color: rgb(139, 139, 139);
   color: black;
 }
+
+.registration-button:hover {
+  color: black;
+  box-shadow: 0 0 15px rgb(233, 131, 64);
+  text-shadow: 0 0 5px #d4ab21;
+}
+
+.login-button:hover {
+  color: black;
+  box-shadow: 0 0 15px rgb(139, 139, 139);
+  text-shadow: 0 0 5px #888371;
+}

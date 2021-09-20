@@ -1,7 +1,10 @@
 <mat-card class='genre-container'>
-  <button class="close-button" mat-icon-button color='light' [mat-dialog-close]='true'>
-    close
+
+  <button id="close-button" mat-icon-button color='light' [mat-dialog-close]='true'>
+    <mat-icon>close</mat-icon>
   </button>
-  <mat-card-title>{{data.name}}</mat-card-title>
-  <p class="data">{{data.description}}</p>
+
+    <mat-card-title>{{data.name}}</mat-card-title>
+    <p class='data'>{{data.description}}</p>
+ 
 </mat-card>

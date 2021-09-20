@@ -25,11 +25,11 @@ export class ProfileEditViewComponent implements OnInit {
   //update user details
   updateUser(): void {
     this.fetchApiData.editUserProfile(this.userData).subscribe(
-      (response) => {
+      (resp) => {
         // Logic for successful user registration needs to be implemented here!
         this.dialogRef.close();
-        localStorage.setItem('username', response.Username);
-        console.log(response);
+        localStorage.setItem('username', resp.Username);
+        console.log(resp);
         this.snackBar.open(
           this.userData.Username,
           'Successfully updated user details!',
@@ -38,8 +38,8 @@ export class ProfileEditViewComponent implements OnInit {
           }
         );
       },
-      (response) => {
-        this.snackBar.open(response, 'OK', {
+      (resp) => {
+        this.snackBar.open(resp, 'OK', {
           duration: 3000,
         });
         setTimeout(function () {

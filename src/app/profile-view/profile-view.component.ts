@@ -28,8 +28,8 @@ export class ProfileViewComponent implements OnInit {
 
   getUser(): void {
     let user = localStorage.getItem('username');
-    this.fetchApiData.getUser(user).subscribe((response: any) => {
-      this.user = response;
+    this.fetchApiData.getUser(user).subscribe((resp: any) => {
+      this.user = resp;
       console.log(user);
     });
   }
@@ -54,8 +54,8 @@ export class ProfileViewComponent implements OnInit {
           );
           localStorage.clear();
         },
-        (response) => {
-          this.snackBar.open(response, 'OK', {
+        (resp) => {
+          this.snackBar.open(resp, 'OK', {
             duration: 2000,
           });
           // Refreshes and redirects to welcome view

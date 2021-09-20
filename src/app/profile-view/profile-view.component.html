@@ -1,29 +1,27 @@
-<mat-card>
-  <button style="color: rgb(209, 209, 209); cursor: pointer;" mat-icon-button [mat-dialog-close]='true'>
-  close
+<mat-card class='profile-view-container'>
+  <button id="close-button" mat-icon-button [mat-dialog-close]='true'>
+    <mat-icon>close</mat-icon>
   </button>
-  <div class='profile-card-container'>
-    <mat-card-title>User Details</mat-card-title>
+
+     <mat-card-title>User Details</mat-card-title>
     <mat-card-content>
-      <p class='profile-data'>USERNAME</p>
-      <p class='profile-card-content'>{{user.Username}}</p>
-      <p class="profile-data">EMAIL</p>
-      <p class='profile-card-content'>{{user.Email}}</p>
-      <p class="profile-data">BIRTHDAY</p>
-      <p class='profile-card-content'>{{user.Birthday | date: "dd/MM/yyyy":"UTC" || "N/A"}}</p>
+      <p class='label'>USERNAME</p>
+      <p class='data'>{{user.Username}}</p>
+      <p class='label'>EMAIL</p>
+      <p class='data'>{{user.Email}}</p>
+      <p class='label'>BIRTHDAY</p>
+      <p class='data'>{{user.Birthday | date: 'dd/MM/yyyy':'UTC' || 'N/A'}}</p>
 
     </mat-card-content>
 
     <mat-card-subtitle>
-      <button class="update-dialog-button" mat-button (click)='openUpdateUserDialog()'>
+      <button class='update-dialog-button' mat-button (click)='openUpdateUserDialog()'>
         Update Profile
       </button>
 
-      <button class="delete-account-button" mat-button (click)='deleteUserProfileDialog()'
-        style="color: rgb(20, 19, 19); background-color: rgb(238, 122, 44);">
+      <button class='delete-account-button' mat-button (click)='deleteUserProfileDialog()'>
         Delete Account
       </button>
     </mat-card-subtitle>
 
-  </div>
 </mat-card>

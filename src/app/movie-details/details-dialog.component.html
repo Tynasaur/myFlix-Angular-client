@@ -1,20 +1,18 @@
 <mat-card class='details-container'>
-  <button class="close-button" mat-icon-button color='light' [mat-dialog-close]='true'>
-    close
+
+  <button id="close-button" mat-icon-button color='light' [mat-dialog-close]='true'>
+    <mat-icon>close</mat-icon>
   </button>
 
   <mat-card-title>{{data.title}}</mat-card-title>
-  <mat-card-content>
-    <img src={{data.imagePath}} alt={{data.title}} class='movie-image' />
+  <img src={{data.imagePath}} alt={{data.title}} style="max-width:150px; align-self: center;" />
 
-    <p class='label'>DIRECTOR </p>
-    <p class="data">{{data.genre}}</p>
+  <p class='label'>DIRECTOR </p>
+  <p class="data">{{data.genre}}</p>
 
-    <p class='label'>GENRE</p>
-    <p class="data">{{data.director}}</p>
+  <p class='label'>GENRE</p>
+  <p class="data">{{data.director}}</p>
 
-    <p class='label'>SYNOPSIS</p>
-    <p class="data">{{data.description}}</p>
-  </mat-card-content>
-
+  <p class='label'>SYNOPSIS</p>
+  <p class="data">{{data.description}}</p>
 </mat-card>

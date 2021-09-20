@@ -5,15 +5,15 @@
   <mat-card-content>
     <form>
       <mat-form-field class='input-field-name'>USERNAME
-        <input  matInput [(ngModel)]="userData.Username" type="text" name="Username" required>
+        <input matInput [(ngModel)]='userData.Username' type='text' name='Username' required>
       </mat-form-field>
       <mat-form-field class='input-field-name'>PASSWORD
-        <input  matInput [(ngModel)]="userData.Password" type="password" name="Password" required>
+        <input matInput [(ngModel)]='userData.Password' type='password' name='Password' required>
       </mat-form-field>
     </form>
   </mat-card-content>
   <mat-card-subtitle>
-    <button mat-raised-button (click)="loginUser()">
+    <button mat-raised-button (click)='loginUser()'>
       Log In
     </button>
   </mat-card-subtitle>

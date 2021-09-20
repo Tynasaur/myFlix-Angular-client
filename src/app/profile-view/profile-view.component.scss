@@ -4,6 +4,9 @@
 
 mat-card {
   background-color: rgb(39, 41, 41);
+  margin-left: 30px;
+  font-size: 16px;
+  color: aliceblue;
 }
 
 mat-card-title {
@@ -13,26 +16,62 @@ mat-card-title {
   font-size: 22px;
 }
 
-.float-right {
-  align-items: end;
+mat-icon {
+  font-size: 15px;
+  text-align: center;
+  padding-right: 10px;
 }
 
-.profile-card-content {
-  margin-left: 30px;
-  font-size: 16px;
-  color: aliceblue;
+#close-button {
+  align-self: flex-end;
+  color: rgb(181, 181, 184);
+  background-color: rgb(37, 37, 37);
 }
 
-.profile-data {
-  margin-left: 30px;
-  color: rgb(129, 129, 129);
-  font-size: 11px;
+.profile-view-container {
+  background-color: rgb(46, 46, 46);
+  color: rgb(221, 221, 221);
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  padding-bottom: 22px;
 }
 
+.label {
+  color: rgb(158, 155, 155);
+  margin-left: 20px;
+  font-size: 10px;
+  margin-bottom: -5px;
+}
+
+.data {
+  color: rgb(233, 230, 230);
+  margin-left: 20px;
+  margin-right: 18px;
+}
 
 .update-dialog-button {
   margin-left: 30px;
   margin: 10px;
   background-color: rgb(139, 139, 139);
   color: black;
+}
+
+.update-dialog-button:hover {
+  color: black;
+  box-shadow: 0 0 15px rgb(139, 139, 139);
+  text-shadow: 0 0 5px #888371;
+}
+
+.delete-account-button {
+  color: rgb(20, 19, 19);
+  background-color: rgb(238, 122, 44);
+}
+
+.delete-account-button:hover {
+  color: black;
+  box-shadow: 0 0 15px rgb(233, 131, 64);
+  text-shadow: 0 0 5px #d4ab21;
 }

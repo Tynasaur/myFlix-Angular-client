@@ -38,3 +38,9 @@ button {
   background-color: rgb(139, 139, 139);
   color: black;
 }
+
+button:hover {
+  color: black;
+  box-shadow: 0 0 15px rgb(139, 139, 139);
+  text-shadow: 0 0 5px #888371;
+}

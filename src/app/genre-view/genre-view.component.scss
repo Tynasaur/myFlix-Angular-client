@@ -4,22 +4,37 @@
 
 mat-card-title {
   color: rgb(224, 134, 15);
-  margin-left: 20px;
+  text-align: center;
 }
 
-.data {
-  color: white;
-  margin-left: 20px;
-}
 
 .genre-container {
   background-color: rgb(46, 46, 46);
   color: rgb(221, 221, 221);
-  max-width: 500px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+
+  padding-bottom: 22px;
 }
 
-.close-button {
-  position: relative;
-  color: rgb(180, 179, 179);
+mat-icon {
+  font-size: 15px;
+  text-align: center;
+  padding-right: 10px;
 }
 
+#close-button {
+  align-self: flex-end;
+  color: rgb(181, 181, 184);
+  background-color: rgb(37, 37, 37);
+}
+
+.data {
+  color: rgb(233, 230, 230);
+  margin-left: 20px;
+  margin-right: 18px;
+  padding-bottom: 20px;
+}

@@ -1,18 +1,19 @@
 <mat-card class='director-container'>
-  <button class="close-button" mat-icon-button color='light' [mat-dialog-close]='true'>
-    close
-    </button>
-  <mat-card-title>{{data.name}}</mat-card-title>
-  <p class="data">{{data.bio}}</p>
+  <button id="close-button" mat-icon-button [mat-dialog-close]='true'>
+    <mat-icon>close</mat-icon>
+  </button>
 
-  <div class="birth-death-wrapper">
-    <div class="birth">
+  <mat-card-title>{{data.name}}</mat-card-title>
+  <p class='data'>{{data.bio}}</p>
+
+  <div>
+    <div class='birth'>
       <p class='label'>BORN</p>
-      <p class="data">{{data.birthday}}</p>
+      <p class='data'>{{data.birthday}}</p>
     </div>
-    <div class="death">
+    <div class='death'>
       <p class='label'>DIED</p>
-      <p class="data">{{data.deathdate || "N/A"}}</p>
+      <p class='data'>{{data.deathdate || 'N/A'}}</p>
     </div>
   </div>
 </mat-card>

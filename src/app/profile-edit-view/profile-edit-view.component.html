@@ -1,26 +1,31 @@
-<mat-card>
+<mat-card class='profile-edit-container'>
+  <button id="close-button" mat-icon-button [mat-dialog-close]='true'>
+    <mat-icon>close</mat-icon>
+  </button>
+
   <mat-card-header>
     <mat-card-title>Update Account Details</mat-card-title>
   </mat-card-header>
+
   <mat-card-content>
     <form>
-      <mat-form-field class='profile-edit-field-name'>USERNAME
-        <input matInput [(ngModel)]='userData.Username' name='Username' type='text'/>
+      <mat-form-field class='label'>USERNAME
+        <input matInput [(ngModel)]='userData.Username' name='Username' type='text' />
       </mat-form-field>
-      <mat-form-field class='profile-edit-field-name'>PASSWORD
-        <input matInput [(ngModel)]='userData.Password' type='password' name='Password'
-          required />
-      </mat-form-field> 
-      <mat-form-field class='profile-edit-field-name'>EMAIL
-        <input matInput [(ngModel)]='userData.Email' type='email' name='Email'/>
+      <mat-form-field class='label'>PASSWORD
+        <input matInput [(ngModel)]='userData.Password' type='password' name='Password' required />
       </mat-form-field>
-      <mat-form-field class='profile-edit-field-name'>BIRTHDAY
+      <mat-form-field class='label'>EMAIL
+        <input matInput [(ngModel)]='userData.Email' type='email' name='Email' />
+      </mat-form-field>
+      <mat-form-field class='label'>BIRTHDAY
         <input matInput [(ngModel)]='userData.Birthday' type='date' name='Birthday' />
       </mat-form-field>
     </form>
   </mat-card-content>
+
   <mat-card-subtitle>
-    <button class="update-dialog-button" mat-raised-button (click)='updateUser()' color='primary'>
+        <button class='update-dialog-button' mat-raised-button (click)='updateUser()' color='primary'>
       Update
     </button>
   </mat-card-subtitle>
