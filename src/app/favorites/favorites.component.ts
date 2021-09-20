@@ -8,6 +8,9 @@ import { GenreViewComponent } from '../genre-view/genre-view.component';
 import { DirectorViewComponent } from '../director-view/director-view.component';
 import { MovieDetailsComponent } from '../movie-details/details-dialog.component';
 
+//declarations
+const user = localStorage.getItem('username');
+
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.component.html',
@@ -18,7 +21,7 @@ export class FavoritesComponent implements OnInit {
   favorites: any = [];
   movies: any[] = [];
   faves: any[] = [];
-
+  userDetails: any;
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
@@ -27,31 +30,36 @@ export class FavoritesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMovies();
-    this.getUsersFavs();
+    this.getUserFaves();
+    this.getUserDetails();
   }
 
-  getUsersFavs(): void {
-    const user = localStorage.getItem('username');
-    this.fetchApiData.getUser(user).subscribe((resp: any) => {
-      this.faves = resp.Favorites;
-      console.log(this.faves);
-      return this.faves;
-    });
+  /**
+   * gets user details to display username in favorties profile
+   */
+  public getUserDetails(): void {
+    this.userDetails = localStorage.getItem('username') + "'s";
   }
 
-  getUser(): void {
-    let user = localStorage.getItem('username');
-    this.fetchApiData.getUser(user).subscribe((res: any) => {
-      this.user = res;
-      this.getMovies();
-    });
-  }
-
+  /**
+   * gets all movies
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
-      console.log(this.movies);
-      return this.filterFavorites(); // Calls the filter function when calling movies to show only favorites
+      // console.log(this.movies);
+      return this.filterFavorites();
+    });
+  }
+
+  /**
+   * gets the users favorite movies
+   */
+  getUserFaves(): void {
+    this.fetchApiData.getUser(user).subscribe((resp: any) => {
+      this.faves = resp.FavoriteMovies;
+      console.log(this.faves);
+      return this.faves;
     });
   }
 
@@ -60,64 +68,101 @@ export class FavoritesComponent implements OnInit {
    */
   filterFavorites(): void {
     this.movies.forEach((movie: any) => {
-      if (this.favorites.includes(movie._id)) {
+      if (this.faves.includes(movie._id)) {
         this.favorites.push(movie);
       }
-      console.log(this.favorites);
+      // console.log(this.favorites);
     });
     return this.favorites; // Calls a reload for a dynamic removal from list
   }
 
-  openGenre(name: string, description: string): void {
+  /**
+   * opens genre modal with info about genre
+   * @param name (genre name)
+   * @param description (genre description)
+   */
+  openGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreViewComponent, {
       data: { name, description },
-      width: '650px',
-    });
-  }
-
-  openDirectorDialog(name: string, bio: string, birthyear: string): void {
-    this.dialog.open(DirectorViewComponent, {
-      data: { name, bio, birthyear },
-      width: '650px',
-    });
-  }
-
-  openMovieSynopsis(
-    Title: string,
-    description: string,
-    trailerUrl: string
-  ): void {
-    this.dialog.open(MovieDetailsComponent, {
-      data: { Title, description, trailerUrl },
-      width: '650px',
-    });
-  }
-
-  addToFavoriteMoviesList(id: string, Title: string): void {
-    this.fetchApiData.addToFavoriteMovies(id).subscribe((res: any) => {
-      //let favMovies = res.Favorites;
-      this.snackBar.open(`${Title} has been added to favorties`, 'OK', {
-        duration: 3000,
-      });
-      return this.getUsersFavs();
-    });
-  }
-
-  removeFromFavorites(id: string, Title: string): void {
-    this.fetchApiData.removeFavoriteMovie(id).subscribe((res: any) => {
-      //let favMovies = res.Favorites;
-      this.snackBar.open(`${Title} has been removed from favorties`, 'OK', {
-        duration: 3000,
-      });
-      setTimeout(function () {
-        window.location.reload();
-      }, 3500);
-      return this.getUsersFavs();
+      width: '500px',
     });
   }
 
   /**
-   * Allows for dynamic loading of favorites icon to display on/off of favorites
+   * opens director modal with infos about director
+   * @param name (director name)
+   * @param bio (director bio)
+   * @param birthYear (director birthYear)
+   * @param deathYear (director deathYear)
+   */
+  openDirectorDialog(
+    name: string,
+    bio: string,
+    birthday: number,
+    deathdate: number
+  ): void {
+    this.dialog.open(DirectorViewComponent, {
+      data: { name, bio, birthday, deathdate },
+      width: '500px',
+    });
+  }
+
+  /**
+   * opens synopsis modal with infos about movie
+   * @param title (movie title)
+   * @param imageUrl (movie image/cover)
+   * @param description (movie description)
+   * @param genre (movie genre)
+   * @param director (movie director)
+   */
+  openMovieDetails(
+    title: string,
+    imageUrl: string,
+    description: string,
+    genre: string,
+    director: string
+  ): void {
+    this.dialog.open(MovieDetailsComponent, {
+      data: { title, imageUrl, description, genre, director },
+      width: '500px',
+    });
+  }
+
+  addToFavoriteMoviesList(id: string, Title: string): void {
+    this.fetchApiData.addToFavoriteMovies(id).subscribe((resp: any) => {
+      this.snackBar.open(`${Title} has been added to favorties`, 'OK', {
+        duration: 3000,
+      });
+      return this.getUserFaves();
+    });
+  }
+
+  /**
+   * removes the movie from users favoritemovies array
+   * @param id (movie._id - unique identifier)
+   * @param title (movie title)
+   * @returns a status message - success/error
+   */
+  removeFromFavorites(id: string, title: string): void {
+    this.fetchApiData.removeFavoriteMovie(id).subscribe((resp: any) => {
+      this.snackBar.open(
+        `${title} has been removed from your favorites.`,
+        'OK',
+        {
+          duration: 3000,
+        }
+      );
+      setTimeout(function () {
+        window.location.reload();
+      }, 3000);
+    });
+    return this.getUserFaves();
+  }
+
+  /**
+   * Compares movie id's with getUserFaves returned list to display the favorite movie icon (heart) correctly
+   * @param id
+   * @returns
    */
   setFaveStatus(id: any): any {
     if (this.faves.includes(id)) {

@@ -147,7 +147,7 @@ export class FetchApiDataService {
     const username = localStorage.getItem('username');
     console.log(token, 'token from addToFavoriteMovies POST request');
     return this.http
-      .post(apiUrl + 'users/' + username + '/favorites/' + id, null, {
+      .post(apiUrl + 'users/' + username + '/' + id, null, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -160,7 +160,7 @@ export class FetchApiDataService {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('username');
     return this.http
-      .delete(apiUrl + 'users/' + username + '/favorites/' + id, {
+      .delete(apiUrl + 'users/' + username + '/' + id, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -203,8 +203,8 @@ export class FetchApiDataService {
   }
 
   // extract Response Data
-  private extractResponseData(response: Response | Object): any {
-    const body = response;
+  private extractResponseData(resp: Response | Object): any {
+    const body = resp;
     return body || {};
   }
 
