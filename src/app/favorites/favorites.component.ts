@@ -58,7 +58,7 @@ export class FavoritesComponent implements OnInit {
   getUserFaves(): void {
     this.fetchApiData.getUser(user).subscribe((resp: any) => {
       this.faves = resp.FavoriteMovies;
-      console.log(this.faves);
+      // console.log(this.faves);
       return this.faves;
     });
   }
