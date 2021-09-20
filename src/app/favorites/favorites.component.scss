@@ -1,3 +1,70 @@
+
+h1 {
+  color: rgb(167, 167, 167);
+  margin: 20px;
+  margin-left: 40px;
+  font-size: 25px;
+  font-weight: 500;
+}
+
 .title {
   color: whitesmoke;
+}
+.mat-card {
+  width: 275px;
+  margin: 10px;
+  background-color: rgb(46, 46, 46);
+}
+
+.favorite-button {
+  float: right;
+  cursor: pointer;
+}
+
+.favorite-button-active {
+  float: right;
+  color: red;
+  cursor: pointer;
+}
+
+.mat-card-header {
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.mat-card-title {
+  font-family: "Ubuntu-Medium", Roboto;
+  color: rgb(221, 221, 221);
+}
+
+.mat-card-subtitle {
+  font-family: "Ubuntu-Light", Roboto;
+  color: rgb(170, 168, 168);
+}
+
+.mat-card-content {
+  display: flex;
+  justify-content: space-around;
+}
+
+.movie-img {
+  width: 265px;
+}
+
+.movie-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+button {
+  color: #3388b9;
+}
+
+.button-link {
+  font-family: "Ubuntu-Light", Roboto;
 }
