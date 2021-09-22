@@ -11,7 +11,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./profile-edit-view.component.scss'],
 })
 export class ProfileEditViewComponent implements OnInit {
-  //fields for user update form
+  /**
+   * Params for updating user, Username cannot be updated
+   */
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
 
   constructor(
@@ -23,8 +25,8 @@ export class ProfileEditViewComponent implements OnInit {
   ngOnInit(): void {}
 
   /**
-   * Updates the users information
-  */
+   * Updates user details
+   */
   updateUser(): void {
     this.fetchApiData.editUserProfile(this.userData).subscribe(
       (resp) => {
