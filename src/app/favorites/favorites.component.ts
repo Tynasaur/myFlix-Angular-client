@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
-
-import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
-
+// components
 import { GenreViewComponent } from '../genre-view/genre-view.component';
 import { DirectorViewComponent } from '../director-view/director-view.component';
 import { MovieDetailsComponent } from '../movie-details/details-dialog.component';
+// Material modules
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 //declarations
 const user = localStorage.getItem('username');
@@ -168,7 +168,6 @@ export class FavoritesComponent implements OnInit {
   /**
    * Compares movie id's with getUserFaves returned list to display the favorite movie icon (heart) correctly
    * @param id
-   * @returns
    */
   setFaveStatus(id: any): any {
     if (this.faves.includes(id)) {

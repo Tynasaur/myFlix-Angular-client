@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-// custom components
-import { ProfileViewComponent } from '../profile-view/profile-view.component';
-
 import { Router } from '@angular/router';
+// components
+import { ProfileViewComponent } from '../profile-view/profile-view.component';
+import { FavoritesComponent } from '../favorites/favorites.component';
+// Material modules
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-import { FavoritesComponent } from '../favorites/favorites.component';
+
 
 @Component({
   selector: 'app-nav-bar',

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
-
-import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
-
+// components
 import { DirectorViewComponent } from '../director-view/director-view.component';
 import { GenreViewComponent } from '../genre-view/genre-view.component';
 import { MovieDetailsComponent } from '../movie-details/details-dialog.component';
+// Material modules
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 //declarations
 const user = localStorage.getItem('username');
@@ -54,7 +54,14 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  openDirectorDialog(
+    /**
+   * Opens genre details in a MatDialog modal
+   * @param name Director name
+   * @param bio director bio
+   * @param birthday director birthday
+   * @param deathdate director deathdate
+   */
+    openDirectorDialog(
     name: string,
     bio: string,
     birthday: string,
@@ -66,9 +73,12 @@ export class MovieCardComponent implements OnInit {
     });
   }
   /**
-   * Opens movie synopsis modal with Title, description and trailer video
-   * @param Title movie title
+   * Opens movie synopsis modal with movie-details
+   * @param title movie title
+   * @param imagePath movie imagePath
    * @param description movie description
+   * @param director movie director
+   * @param genrre movie genre
    */
   openMovieDetails(
     title: string,
@@ -85,7 +95,6 @@ export class MovieCardComponent implements OnInit {
   /**
    * Adds move to users favorites list
    */
-
   addToFavoriteMoviesList(id: string, Title: string): void {
     this.fetchApiData.addToFavoriteMovies(id).subscribe((resp: any) => {
       this.snackBar.open(`${Title} has been added to favorties`, 'OK', {
@@ -96,7 +105,7 @@ export class MovieCardComponent implements OnInit {
   }
 
   /**
-   * Removed movie from users favorites list
+   * Removes movie from users favorites list
    */
   removeFromFavorites(id: string, Title: string): void {
     this.fetchApiData.removeFavoriteMovie(id).subscribe((resp: any) => {
@@ -117,6 +126,7 @@ export class MovieCardComponent implements OnInit {
       return this.faves;
     });
   }
+
   /**
    * Compares movie id's with getUserFaves returned list to set the Favorites icon to add/remove correctly
    */
